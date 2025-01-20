@@ -86,6 +86,7 @@ body{
 #services{
     background-image: url('./assets/service_background.svg');
     background-size: cover;
+    background-attachment: fixed;
    
 }
 
@@ -222,6 +223,9 @@ form input:focus, form textarea:focus{
 }
 
 
+/* for small screen devices */
+
+
 @media (max-width: 600px) {
    .linedbox-left,.linedbox-right,.linedbox{
     position: static;
@@ -297,6 +301,11 @@ form input:focus, form textarea:focus{
     min-height: 20vh !important;
   }
   .r_name, .r_work, .r_no{
+    font-size: 12px !important;
+  }
+
+  #contact form input, #contact form textarea,#submitbutton{
+    width: 100% !important;
     font-size: 12px !important;
   }
 }

@@ -45,6 +45,8 @@
       </div>
     </nav>
     <header id="home">
+        <br>
+        <br>
             <div class="container">
                 <div class="w-50 ms-auto me-1 p-1 res_p1">
                     <h3 class="fs-1 text-white">DATA DRIVEN <span class="silver">PEOPLE <br> BEST IN INDUSTRY</span>,
@@ -281,5 +283,36 @@
                 </div>
             </div>
         </footer>
+
+
+        <!-- modal for form submitted successfully -->
+
+        <div class="modal fade" id="successmodal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p class="lead fw-bold text-success">Your query has been submitted successfully</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal for form submitted failed -->
+
+        <div class="modal fade" id="failedmodal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p class="lead fw-bold text-danger">Something went wrong. Please try again.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 </html>

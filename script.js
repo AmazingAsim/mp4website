@@ -70,6 +70,12 @@ navLinks.forEach((link) => {
 
 // form submition 
 
+let successmodal = document.getElementById("successmodal");
+let failedmodal = document.getElementById("failedmodal");
+
+let failedModalInstance = new bootstrap.Modal(failedmodal);
+let successModalInstance = new bootstrap.Modal(successmodal);
+
 document.getElementById('queryform').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the form from redirecting
 
@@ -82,10 +88,10 @@ document.getElementById('queryform').addEventListener('submit', function(event) 
     .then(response => response.text())
     .then(data => {
         if (data === "success") {
-            alert("Your message has been sent successfully!"); // Show success popup
+            successModalInstance.show(); // Show success popup
             this.reset();
         } else {
-            alert("Something went wrong. Please try again."); // Show error popup
+            failedModalInstance.show(); // Show error popup
             this.reset();
         }
     })
