@@ -96,6 +96,12 @@ body{
     height: 100vh;
 }
 
+#aboutpage{
+    background-image: url('./assets/hitman.svg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 #about{
     background-image: url('./assets/wings.svg');
     background-size: cover;
@@ -125,14 +131,54 @@ body{
     top: -300px;
 }
 
-.bcard{
-    border-radius: 10%;
-    height: 70vh;
+.bcard {
+    perspective: 1000px; /* Creates a 3D space for the flip effect */
+    width: 80%;
+    padding: 10px;
+    height: 60vh;
+    margin: auto;
+}
+
+.bcard-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-in-out;
+}
+
+.bcard:hover .bcard-inner {
+    transform: rotateY(180deg);
+}
+
+.bcard-front, .bcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+     backface-visibility: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    text-align: center;
+    padding: 10px;
     align-items: center;
+    color: white;
+    border-radius: 20px;
+    border:1px solid white;
+    overflow: hidden;
 }
+
+.bcard-front {
+    text-align: center;
+}
+
+.bcard-back {
+    background-color:white;
+    color: black;
+    transform: rotateY(180deg); 
+}
+
+
 
 .dullblood{
     color: #A73537;
@@ -220,6 +266,32 @@ form input:focus, form textarea:focus{
 #submitbutton:active{
     background-color: black !important;
     color:#909090 !important;
+}
+
+#arrowbutton:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    filter: drop-shadow(0px 0px 5px red);
+}
+
+.social_media_links:hover{
+    filter:drop-shadow(0px 0px 5px #B80003);
+    transform: scale(1.1);
+}
+
+.night{
+    background-color: #131313;
+}
+
+/* for about section  */
+
+.black_glass{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border:1px solid white;
+    padding: 10px 50px;
+    margin:20px 0px;
+    width: 60% !important
 }
 
 

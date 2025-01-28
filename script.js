@@ -85,18 +85,41 @@ document.getElementById('queryform').addEventListener('submit', function(event) 
         method: 'POST',
         body: formData
     })
-    .then(response => response.text())
+    .then(response =>response.json())
     .then(data => {
-        if (data === "success") {
+        console.log(data);
+        console.log(data.status);
+       
+            document.getElementById('successmessage').innerHTML = data.message || "Your query has been submitted successfully";
             successModalInstance.show(); // Show success popup
             this.reset();
-        } else {
-            failedModalInstance.show(); // Show error popup
-            this.reset();
-        }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert("An error occurred. Please try again.");
+        failedModalInstance.show(); // Show error popup
+        this.reset();
     });
 });
+
+
+const mainContent = document.getElementById('main-content');
+const successModal = document.getElementById('successmodal');
+const failedModal = document.getElementById('failedmodal');
+
+// Function to handle modal visibility
+  function toggleAriaHidden(modal, isVisible) {
+    if (isVisible) {
+        modal.setAttribute('aria-hidden', 'false');
+        mainContent.setAttribute('aria-hidden', 'true');
+    } else {
+        modal.setAttribute('aria-hidden', 'true');
+        mainContent.setAttribute('aria-hidden', 'false');
+    }
+}
+
+// Event listeners for modals
+successModal.addEventListener('show.bs.modal', () => toggleAriaHidden(successModal, true));
+successModal.addEventListener('hide.bs.modal', () => toggleAriaHidden(successModal, false));
+
+failedModal.addEventListener('show.bs.modal', () => toggleAriaHidden(failedModal, true));
+failedModal.addEventListener('hide.bs.modal', () => toggleAriaHidden(failedModal, false));
